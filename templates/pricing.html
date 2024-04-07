@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+
+<section id="pricing" class="pricing" style="margin-top: 100px">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Pricing</h2>
+    </div>
+
+    <div class="row">
+      <div
+        class="col-lg-4 mt-4 mt-lg-0"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div class="box">
+          <h3>Silver Plan</h3>
+          <h4><sup>Ksh </sup>1000<span>per month</span></h4>
+          <ul>
+            <li><i class="bx bx-check"></i>Full Protected</li>
+          </ul>
+          <a href="{{ url_for('views.login') }}" class="buy-btn">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends 'dashbase.html' %} {% block content %}
+
+<div class="container">
+  {% if user %}
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Welcome</li>
+          <li class="breadcrumb-item active">{{ user_name }}</li>
+        </ol>
+      </nav>
+    </div>
+    <div id="alerts"></div>
+    <section class="section dashboard">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card info-card key-card">
+            <div class="card-body">
+              <h5 class="card-title">Step 1 <span>| Purchase API Key</span></h5>
+              <div class="d-flex align-items-center">
+                <button type="button" class="btn btn-primary" id="show-pay">
+                  Purchase API Key
+                  <i class="bx bx-key" style="font-size: 18px"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup">
+          <div class="close-btn">&times;</div>
+          <div class="form">
+            <div class="form-element">
+              <label for="phone">Phone Number</label>
+              <input
+                type="text"
+                id="phone"
+                placeholder="Enter phone number: 254XXXXXXXXX"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-element">
+              <button id="sendRequest">Send request</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card info-card upload-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                Step 2 <span>| Verify Your Payment</span>
+              </h5>
+              <div class="d-flex align-items-center">
+                <button type="button" class="btn btn-info" id="show-verify">
+                  Verify Your Payment
+                  <i class="bx bx-upload" style="font-size: 18px"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup-verify">
+          <div class="close-btn">&times;</div>
+          <div class="form">
+            <div class="form-element">
+              <label for="mpesa">Receipt Number</label>
+              <input
+                type="text"
+                id="mpesa"
+                placeholder="Verify Your Mpesa Receipt Number: SBP65IWM7M"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-element">
+              <button id="verify">Verify</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card info-card download-card">
+            <div class="card-body">
+              <h5 class="card-title">Step 3 <span>| Select API Key</span></h5>
+              <div class="d-flex align-items-center">
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  id="show-download"
+                >
+                  Download API Keys
+                  <i
+                    class="bx bx-download"
+                    style="font-size: 24px; margin-left: 8px"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup-download">
+          <div class="close-btn">&times;</div>
+          <div class="form">
+            <div class="form-element">
+              <label for="mpesa"> Verified Receipt Number</label>
+              <input
+                type="text"
+                id="mpesa-verified"
+                placeholder="Enter Verified Mpesa Receipt Number: SBP65IWM7M"
+                autocomplete="off"
+              />
+            </div>
+            <label for="mpesa" style="color: #000">API Keys</label>
+            <div class="container-dropdown">
+              <div
+                class="wrapper-dropdown"
+                id="myDropdown"
+                style="width: 320px"
+              >
+                <span>Choose API key</span>
+                <ul class="dropdown">
+                  <li>OpenAI key</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-element">
+              <button id="download-api">Download API Key</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card info-card download-card">
+            <div class="card-body">
+              <h5 class="card-title">Step 4 <span>| Threat Modelling</span></h5>
+              <div class="d-flex align-items-center">
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  onclick="window.location.href='/threat'"
+                >
+                  Threat modelling
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% endblock%}
+  </main>
+</div>

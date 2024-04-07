@@ -1,0 +1,41 @@
+{% extends 'dashbase.html' %} {% block content %}
+
+<div class="container">
+  {% if user %}
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Welcome</li>
+          <li class="breadcrumb-item active">{{ user_name }}</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section dashboard">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card info-card key-card">
+            <div class="card-body">
+              <h5 class="card-title"><span>| Registered Users</span></h5>
+              <p style="font-size: 15px; color: #000">
+                {{registered_users_count }} users
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card info-card upload-card">
+            <div class="card-body">
+              <h5 class="card-title"><span>| Total Revenue Collected</span></h5>
+              <p style="font-size: 15px; color: #000">Ksh {{total_amount }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %} {% endblock%}
+  </main>
+</div>
